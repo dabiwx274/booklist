@@ -1,0 +1,506 @@
+/* กล่องควบคุมเนื้อหาทั้งหมดให้อยู่ตรงกลาง และเว้นระยะจากขอบจอ */
+.content-container {
+    max-width: 1000px; /* จำกัดความกว้างไม่ให้แผ่กว้างเกินไป */
+    margin: 0 auto;    /* จัดให้อยู่ตรงกลางจอ */
+    padding: 0 24px;   /* เว้นระยะห่างจากขอบจอ ซ้าย-ขวา 24px (แก้ปัญหาชิดขอบจอ) */
+}
+
+/* เพิ่มการเว้นขอบบนมือถือให้ดูสบายตายิ่งขึ้น */
+@media (max-width: 576px) {
+    .content-container {
+        padding: 0 16px;
+    }
+}
+/* ==========================================
+   ธีมจีนสไตล์คลาสสิก (Red Dragon & Cream)
+   ========================================== */
+
+body {
+    background-color: #f7f4ea; /* สีพื้นหลังครีมอ่อน */
+    font-family: 'Sarabun', 'Prompt', sans-serif;
+    color: #2b2b2b;
+}
+
+/* ------------------------------------------
+   1. Header / Navbar สไตล์จีน
+   ------------------------------------------ */
+.red-navbar {
+    background-color: #8B0000; /* สีแดงมังกร */
+    border-bottom: 3px solid #C5A059 !important; /* เส้นขอบสีทองสไตล์จีน */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+}
+
+.red-navbar .nav-link {
+    font-size: 1rem;
+    padding: 8px 16px !important;
+    transition: all 0.3s ease;
+}
+
+.red-navbar .nav-link:hover {
+    color: #F8E71C !important; /* เปลี่ยนเป็นสีทอง/เหลืองสว่างเมื่อ Hover */
+    transform: translateY(-2px);
+}
+
+.border-gold {
+    border-color: #C5A059 !important;
+}
+
+/* ------------------------------------------
+   2. คอนเทนเนอร์ & การ์ดสไตล์จีน (Chinese Card)
+   ------------------------------------------ */
+.content-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.chinese-card {
+    position: relative;
+    background-color: #FBF8F1; /* สีครีมภายในกล่อง */
+    border: 2px solid #8B0000; /* ขอบสีแดงมังกร */
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.08);
+}
+
+/* ลวดลายมุมกรอบสีทอง */
+.corner-border {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #C5A059; /* สีทอง */
+}
+
+.top-left { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+.top-right { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 6px; left: 6px; border-right: none; border-top: none; }
+.bottom-right { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+/* ==========================================
+   Hero Section แบบเต็มหน้าจอ (Full Screen Hero)
+   ========================================== */
+
+/* ตัวกล่องครอบภายนอกแผ่เต็มความกว้างจอ */
+.hero-full-section {
+    width: 100%;
+    min-height: calc(100vh - 70px); /* สูงเกือบเต็มจอ (ลบความสูง Navbar ออก) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* คอนเทนเนอร์คุมความกว้างของ Hero */
+.hero-container {
+    width: 100%;
+    max-width: 1100px; /* ขยายให้กว้างกว่ากล่องปกติเล็กน้อยเพื่อให้ดูเต็มตา */
+    margin: 0 auto;
+}
+
+/* การ์ด Hero สไตล์จีนเต็มหน้าจอ */
+.hero-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 40px;
+    width: 100%;
+}
+
+.hero-card .image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-card .book-cover {
+    width: 100%;
+    max-width: 320px; /* เพิ่มขนาดรูปเล่มหนังสือให้ใหญ่ขึ้นพอดีหน้าจอ */
+    height: auto;
+    border-radius: 6px;
+    border: 3px solid #C5A059;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.hero-card .book-cover:hover {
+    transform: scale(1.03);
+}
+
+.hero-card .text-wrapper {
+    flex: 1.3;
+}
+
+.hero-card .title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 3.2rem; /* ขยายฟอนต์หัวข้อใหญ่ขึ้น */
+    font-weight: 700;
+    color: #8B0000;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.hero-card .subtitle {
+    font-size: 1.35rem;
+    color: #666;
+    margin: 8px 0 16px 0;
+}
+
+.hero-card .highlight-quote {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a2b4c;
+    line-height: 1.7;
+    padding-left: 20px;
+    border-left: 4px solid #8B0000;
+    margin: 0;
+}
+
+/* รองรับหน้าจอมือถือและแท็บเล็ต */
+@media (max-width: 992px) {
+    .hero-full-section {
+        min-height: auto; /* บนมือถือปล่อยความสูงปรับตามเนื้อหา */
+        padding: 20px 15px;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 30px 20px;
+    }
+
+    .hero-card .title {
+        font-size: 2.4rem;
+    }
+
+    .chinese-divider-left {
+        margin: 12px auto 20px;
+    }
+
+    .hero-card .highlight-quote {
+        border-left: none;
+        padding-left: 0;
+        font-size: 1.1rem;
+    }
+}
+
+/* ------------------------------------------
+   4. ส่วนเรื่องย่อ (Synopsis Section)
+   ------------------------------------------ */
+.synopsis-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8B0000;
+    margin: 0;
+}
+
+/* เส้นคั่นประดับสไตล์จีนตรงกลาง */
+.chinese-divider {
+    width: 80px;
+    height: 3px;
+    background-color: #8B0000;
+    margin: 12px auto 25px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.chinese-divider::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: #C5A059;
+    border-radius: 50%;
+    border: 2px solid #8B0000;
+}
+
+.synopsis-text {
+    font-size: 1.05rem;
+    color: #333333;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 12px;
+}
+
+/* ------------------------------------------
+   5. Responsive (สำหรับหน้าจอมือถือ)
+   ------------------------------------------ */
+@media (max-width: 768px) {
+    .chinese-card {
+        padding: 25px 20px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .chinese-divider-left {
+        margin: 12px auto 20px;
+    }
+
+    .highlight-quote {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+/* ==========================================
+   สไตล์จีน สีแดงมังกร (#8B0000) & สีครีม (#FBF8F1)
+   ========================================== */
+
+/* หัวข้อหลัก */
+.section-title {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 700;
+    color: #8B0000; /* สีแดงมังกร */
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+/* เส้นคั่นประดับสไตล์จีน (มีจุดสีทองตรงกลาง) */
+.chinese-divider {
+    width: 80px;
+    height: 3px;
+    background-color: #8B0000;
+    margin: 12px auto 25px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.chinese-divider::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: #C5A059; /* สีทองสไตล์จีน */
+    border-radius: 50%;
+    border: 2px solid #8B0000;
+}
+
+/* ------------------------------------------
+   1. ส่วนข้อคิด/บทเรียน (Lessons Box)
+   ------------------------------------------ */
+.lessons-box {
+    position: relative;
+    background-color: #FBF8F1; /* สีครีม */
+    border: 2px solid #8B0000;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.08);
+}
+
+.lessons-content p {
+    font-size: 1.05rem;
+    color: #333333;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto 12px;
+}
+
+/* ลวดลายประดับมุมกล่องข้อคิด (Chinese Corner Frame) */
+.corner-border {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #C5A059; /* สีทอง */
+}
+
+.top-left { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+.top-right { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 6px; left: 6px; border-right: none; border-top: none; }
+.bottom-right { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+/* ------------------------------------------
+   2. ส่วนการ์ดตัวละคร (Character Cards)
+   ------------------------------------------ */
+.character-card {
+    background-color: #FBF8F1; /* สีครีม */
+    border: 1px solid #E5DFD0;
+    border-top: 4px solid #8B0000; /* แถบสีแดงมังกรด้านบน */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect เมื่อเอาเมาส์ชี้ */
+.character-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(139, 0, 0, 0.18);
+    border-color: #8B0000;
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* กำหนดรูปเป็นทรงสี่เหลี่ยมจัตุรัส */
+}
+
+.character-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.character-card:hover .character-img {
+    transform: scale(1.06); /* รูปขยายเบาๆ เมื่อ Hover */
+}
+
+.card-body-custom {
+    padding: 18px 12px;
+}
+
+.character-name {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8B0000; /* สีแดงมังกร */
+    margin-bottom: 6px;
+}
+
+.character-desc {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.5;
+    margin: 0;
+}
+/* ==========================================
+   ปรับปรุงกล่องข้อคิดให้กะทัดรัดและได้สัดส่วน
+   ========================================== */
+
+/* จำกัดความกว้างกล่องใหญ่ให้อยู่ตรงกลาง สอดคล้องกับกล่องสรุป */
+.lessons-box-compact {
+    max-width: 820px;          /* บีบความกว้างไม่ให้แผ่กว้างเกินไป */
+    padding: 35px 35px;        /* เพิ่มระยะเว้นขอบใน ไม่ให้การ์ดชิดกรอบจีน */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ปรับการ์ดข้อคิดย่อยให้โปร่งและดูสบายตา */
+.lesson-card {
+    background-color: #ffffff;
+    border: 1px solid #E5DFD0;
+    border-top: 3px solid #8B0000;
+    border-radius: 8px;
+    padding: 18px 12px;        /* ปรับขนาด Padding ให้พอดี */
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(139, 0, 0, 0.12);
+    border-top-color: #C5A059;
+}
+
+.lesson-icon {
+    font-size: 1.8rem;         /* ลดขนาดไอคอนเล็กน้อย */
+    margin-bottom: 8px;
+}
+
+.lesson-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.1rem;         /* ปรับขนาดหัวข้อการ์ดให้สมดุล */
+    font-weight: 700;
+    color: #8B0000;
+    margin-bottom: 6px;
+}
+
+.lesson-desc {
+    font-size: 0.88rem;        /* ขนาดฟอนต์คำอธิบายพอดีสายตา */
+    color: #555555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* รองรับหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .lessons-box-compact {
+        padding: 25px 18px;
+    }
+}
+/* ==========================================
+   ส่วนสรุปคุณค่า (Summary Box - สีแดงมังกร)
+   ========================================== */
+.summary-box {
+    position: relative;
+    background-color: #8B0000; /* สีแดงมังกรขับให้ดูเด่นและเป็นบทสรุป */
+    color: #ffffff;
+    border: 2px solid #C5A059; /* ขอบสีทอง */
+    border-radius: 8px;
+    padding: 45px 30px;
+    box-shadow: 0 8px 24px rgba(139, 0, 0, 0.2);
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    color: #FBF8F1; /* สีครีมสว่าง */
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+/* เส้นคั่นสีทองสำหรับพื้นหลังแดง */
+.chinese-divider-gold {
+    width: 80px;
+    height: 3px;
+    background-color: #C5A059;
+    margin: 12px auto 25px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.chinese-divider-gold::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: #FBF8F1;
+    border-radius: 50%;
+    border: 2px solid #C5A059;
+}
+
+/* ป้ายชื่อเรื่องด้านล่าง */
+.book-tagline {
+    display: inline-block;
+    font-family: 'Prompt', sans-serif;
+    font-size: 0.95rem;
+    color: #C5A059;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 8px 22px;
+    border-radius: 20px;
+    border: 1px solid #C5A059;
+    letter-spacing: 0.5px;
+}
